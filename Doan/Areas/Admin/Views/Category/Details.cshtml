@@ -1,0 +1,80 @@
+﻿@model Doan.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="accordion-header table table-dark table-striped">
+    <figure>
+        <blockquote class="blockquote">
+            <h3>Chi Tiết Loại Sản Phẩm</h3>
+        </blockquote>
+    </figure>
+</div>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Careated_At)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Careated_At)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_At)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_At)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Quay Về Trang Sản Phẩm", "Index")
+</p>

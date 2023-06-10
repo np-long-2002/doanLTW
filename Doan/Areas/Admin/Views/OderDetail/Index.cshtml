@@ -1,0 +1,83 @@
+﻿@model List<Doan.Models.OderDetail>
+
+@{
+    ViewBag.Title = "OderDetail";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<button type="button" id="btnGetOderDetails">Lấy Danh Sách</button>
+<table class="table odersTable">
+    <tr>
+        <th>Mã Đơn Hàng</th>
+        <th>Mã Sản Phẩm</th>
+    </tr>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Chi Tiết Đơn Hàng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table ">
+                    <tr>
+                        <td>Mã Đơn Hàng</td>
+                        <td><span id="IdSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Mã Khách Hàng</td>
+                        <td><span id="OderIdSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Mã Sản Phẩm</td>
+                        <td><span id="ProductIdSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Số Lượng</td>
+                        <td><span id="NumberSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Giá </td>
+                        <td><span id="PriceSpan"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#btnGetOderDetails').click(() => {
+        $.ajax({
+            type: 'GET',
+            url: '/api/oderdetail',
+            success: (responses) => {
+                for (var i = 0; i <= responses.length; i++) {
+                    const odersRow = responses[i];
+                    const strHTML = '<tr><td>' + odersRow.Id + '</td><td>' + odersRow.ProductId + '</td><td><button type="button" class="btn btn-primary btnViewOders" data-bs-toggle="modal" data-bs-target="#exampleModal" data-odersid="'+odersRow.Id+'">Chi Tiết </button></td></tr>';
+                    $('.odersTable').append(strHTML);
+                }
+            },
+            error: (err) => { console.log(err); }
+        });
+    });
+    $(document).on('click', '.btnViewOders', (event) => {
+        const odid = $(event.taget).attr('data-odersid');
+        $.ajax({
+            type: 'GET',
+            url: `/api/oderdetail?id=${odid}`,
+            success: (responses) => {
+                //$('#IdSpan').html(responses.Id);
+                //$('#OderIdSpan').html(responses.);
+                //$('#ProductIdSpan').html(responses.ProductId);
+                //$('#NumberSpan').html(responses);
+                //$('#PriceSpan').html(responses.Price);
+            },
+            error: (err) => { console.log(err); }
+        });
+    });
+</script>
+
