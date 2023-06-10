@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body style="background-image: url('../Image/bg.png'); background-size: 50%; background-repeat:space; ">
+    <nav class="navbar navbar-expand-md navbar-light sticky-top fixed-top" style="background: rgba(0,0,0,0)">
+        <div class="container-fluid justify-content-center" style="width:200px">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                <img src="~/Image/icon---.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                SellShoes
+            </a>
+        </div>
+        <ul class="navbar-nav" style="display:flex;">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> Trợ Giúp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Liên Hệ</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="justify-content-center bg-warning bg-gradient text-dark bg-opacity-50 " style=" border: 2px solid red; padding: 10px; border-radius: 25px; width:30%;height:auto;margin:auto;margin-top:100px">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Login","Account")">Đăng Nhập</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Register","Account")">Đăng Ký</a>
+            </li>
+        </ul>
+        <div class="justify-content-md-center">
+            @RenderBody()
+        </div>
+    </div>
+    <footer class="bg-primary text-white text-center fixed-bottom">
+        <div class="p-4" style="background-color: rgba(72 122 180 / .2)">
+            <span><i class="fa fa-map-marker" aria-hidden="true"></i> Địa Chỉ : 140 Lê Trọng Tấn, Phường Tây Thạnh, Quận Tân Phú, TP.HCM | <i class="fa fa-phone" aria-hidden="true"></i> Điện Thoại : 0903104340 | <i class="fa fa-envelope" aria-hidden="true"></i> Email : nguyenphuoclongnhd2016@gmai.com</span>
+        </div>
+    </footer>
+</body>
+</html>
